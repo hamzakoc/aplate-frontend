@@ -14,11 +14,11 @@ import { withRouter } from "react-router";
 
 
 //local
-const base_url = 'http://localhost:5000/api/admins/';
+// const base_url = 'http://localhost:5000/api/';
 
 //heroku
 
-// const base_url = 'https://gbc-crud-backend.herokuapp.com/api/v1/employees/'
+const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 
 
@@ -77,7 +77,7 @@ class TabViewRestaurant extends Component {
 
 
 
-    axios.post(base_url, users)
+    axios.post(base_url + "admins/", users)
       .then(res => console.log(res.data));
 
   }

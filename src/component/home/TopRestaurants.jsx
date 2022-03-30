@@ -10,10 +10,10 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 
 //local
-const base_url = 'http://localhost:5000/api/';
+// const base_url = 'http://localhost:5000/api/';
 
 //heroku
-// const base_url = 'https://gbc-crud-backend.herokuapp.com/api/v1/employees/'
+const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 const Restaurants= props=>(
   <div className="col-lg-4 col-md-6" >

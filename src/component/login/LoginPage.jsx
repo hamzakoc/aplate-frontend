@@ -16,8 +16,14 @@ import {
 import axios from 'axios';
 import { loginValidation } from "./Helper";
 
+// local
 
-const base_url = 'http://localhost:5000/api/';
+// const base_url = 'http://localhost:5000/api/';
+
+//Heroku
+
+const base_url = 'https://aplate-api.herokuapp.com/';
+
 
 export default class Login extends Component {
   constructor(props) {
@@ -58,7 +64,7 @@ export default class Login extends Component {
 
     const loginResult = await LoginService(data);
 
-    const loginResultRes = await axios.post('http://localhost:5000/loginRestaurant', data)
+    const loginResultRes = await axios.post(base_url+'loginRestaurant', data)
     .then(res => res.status);
 
     console.log(loginResult)
@@ -76,7 +82,7 @@ export default class Login extends Component {
         error: false,
       });
 
-      axios.get(base_url+"admins/")
+      axios.get(base_url+"api/admins/")
       .then(response => {
   
          const usersFiltered = response.data
@@ -126,7 +132,7 @@ export default class Login extends Component {
         error: false,
       });
 
-      axios.get(base_url+"restaurants/")
+      axios.get(base_url+"api/restaurants/")
       .then(response => {
   
          const usersFiltered = response.data

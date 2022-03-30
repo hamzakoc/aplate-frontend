@@ -12,7 +12,13 @@ import { ReactComponent as Chef } from "../../../svg/chef2.svg";
 import WOW from "wowjs";
 import Moment from 'moment';
 
-const base_url = 'http://localhost:5000/api/';
+//Local
+// const base_url = 'http://localhost:5000/api/';
+
+
+
+const base_url = 'https://aplate-api.herokuapp.com/api/';
+
 
 
 

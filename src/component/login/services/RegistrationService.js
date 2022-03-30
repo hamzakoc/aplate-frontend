@@ -1,6 +1,11 @@
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
 
+
+
+
+const base_url = "https://aplate-api.herokuapp.com/"
+
 export const UserRegistration = async data => {
     // const password = data.password;
     // const salt = bcrypt.genSaltSync(10);
@@ -8,11 +13,11 @@ export const UserRegistration = async data => {
 
     // data["password"] = hash;
 
-    const res = await axios.post('http://localhost:5000/api/admins', data);
+    const res = await axios.post(base_url + "api/admins", data);
     return res.status;
 };
 
 export const UsernameValidation = data => (
-    axios.post('http://localhost:5000/validateUserName', data)
+    axios.post(base_url + 'validateUserName', data)
         .then(exist => exist.status)
 )

@@ -14,32 +14,38 @@ import { withRouter } from "react-router";
 
 
 //local
-const base_url = 'http://localhost:5000/api/restaurants/';
+// const base_url = 'http://localhost:5000/api/';
 
 //heroku
 
-// const base_url = 'https://gbc-crud-backend.herokuapp.com/api/v1/employees/'
+const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 
 
 class TabCreateRestaurant extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: '',
+      fullName: '',
+      emailId: '',
+      address: '',
+      city: '',
+      phone: '',
+      about: '',
+      logo: '',
+      photos: '',
+      photo2: '',
+      photo3: '',
 
-  state = {
-    username: '',
-    password: '',
-    fullName: '',
-    emailId: '',
-    address: '',
-    city: '',
-    phone: '',
-    about: '',
-    logo: '',
-    photos: '',
-    photo2: '',
-    photo3: ''
-
-
+    }
   }
+
+
+
+
+
 
   onChangeUserName = (e) => {
     this.setState({
@@ -82,6 +88,8 @@ class TabCreateRestaurant extends Component {
       about: e.target.value
     })
   }
+
+
 
   onChangeLogo = (e) => {
     this.setState({
@@ -128,7 +136,7 @@ class TabCreateRestaurant extends Component {
 
 
 
-    axios.post(base_url, formData)
+    axios.post(base_url + 'restaurants/', formData)
       .then(res => console.log(res.data));
 
 
@@ -277,9 +285,10 @@ class TabCreateRestaurant extends Component {
                                           required
                                         />
                                       </div>
-                                      <br />   <br /> <br />
-                                      <br />   <br /> <br />
+                                     
 
+                                      <br />   <br /> <br />
+                                      <br />   <br /> <br />
                                       <label className="">Restaurant Logo *</label>
                                       <div className="profile-img-upload-btn">
 
@@ -288,7 +297,7 @@ class TabCreateRestaurant extends Component {
                                           type="file"
                                           className="form-control-file"
                                           onChange={this.onChangeLogo}
-                                         
+
 
                                         />
                                       </div>

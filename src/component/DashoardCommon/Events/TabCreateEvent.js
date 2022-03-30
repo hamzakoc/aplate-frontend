@@ -15,12 +15,20 @@ import {
 
 
 //local
-const base_url = 'http://localhost:5000/api/events';
+// const base_url = 'http://localhost:5000/api/';
 
 //heroku
 
-// const base_url = 'https://gbc-crud-backend.herokuapp.com/api/v1/employees/'
+const base_url = 'https://aplate-api.herokuapp.com/api/'
 
+const Restaurant = props => (<>
+
+  <option value={props.restaurants._id} >{props.restaurants.fullName}</option>
+
+
+
+
+</>)
 
 
 class TabTwo extends Component {
@@ -33,9 +41,42 @@ class TabTwo extends Component {
     seat: '',
     foodOption: '',
     restaurant: '',
+    restaurantId: '',
     eventPhoto: '',
-    optionalImage: ''
+    optionalImage: '',
+    restaurants: [],
+    restaurantReturn: []
   }
+
+
+
+
+
+
+  componentDidMount() {
+
+    axios.get(base_url + "restaurants/")
+      .then(response => {
+        console.log(response.data)
+        const restaurants = response.data
+        this.setState({ restaurants })
+
+      })
+
+      .catch((error) => {
+        console.log(error);
+      })
+
+  }
+
+
+
+  restaurantList() {
+    return this.state.restaurants.map(el => {
+      return <Restaurant className="card-deck card" restaurants={el} key={el._id} />;
+    })
+  }
+
 
   onChangeEventName = (e) => {
     this.setState({
@@ -70,8 +111,26 @@ class TabTwo extends Component {
   }
   onChangeRestaurant = (e) => {
     this.setState({
-      restaurant: e.target.value
+      restaurantId: e.target.value
     })
+
+    console.log(e.target)
+    console.log(e.target.value)
+    const resl = this.state.restaurants.map(el => el).filter(ele => ele._id == e.target.value)
+
+    axios.get(base_url + "restaurants/" + e.target.value)
+      .then(response => {
+        console.log(response.data)
+        const restaurant = response.data.fullName
+        this.setState({ restaurant })
+
+      })
+
+      .catch((error) => {
+        console.log(error);
+      })
+
+
   }
   onChangeEventPhoto = (e) => {
     this.setState({
@@ -115,10 +174,11 @@ class TabTwo extends Component {
     formData.append("desciription", this.state.desciription)
     formData.append("foodOption", this.state.foodOption)
     formData.append("restaurant", this.state.restaurant)
+    formData.append("restaurantId", this.state.restaurantId)
     formData.append("seat", this.state.seat)
     formData.append("city", this.state.city)
 
-    axios.post(base_url, formData)
+    axios.post(base_url + "events/", formData)
       .then(res => console.log(res.data));
 
     // for (var key of formData.entries()) {
@@ -259,21 +319,17 @@ class TabTwo extends Component {
                                       <label>
                                         Restaurant <sup>*</sup>
                                       </label>
+
+
                                       <div className="col-md-12 col-sm-12 col-lg-12">
 
-                                        <input
-                                          className="brd-rd3 form-control"
-                                          type="text"
-                                          value={this.state.restaurant}
-                                          onChange={this.onChangeRestaurant}
-                                          required
-
-                                        />
+                                        <select name="" id="" onChange={this.onChangeRestaurant}>
+                                          <option value=""></option>
+                                          {this.restaurantList()}
+                                        </select>
                                       </div>
-
-
                                     </div>
-
+                                    <br />   <br /> <br />
                                   </div>
                                 </div>
                                 <div className="col-md-12 col-sm-12 col-lg-12">

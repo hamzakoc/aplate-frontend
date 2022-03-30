@@ -4,7 +4,12 @@ import "react-tabs/style/react-tabs.css";
 import { ReactComponent as Motor } from "../../svg/motorbike.svg";
 import axios from 'axios';
 
-const base_url = 'http://localhost:5000/api/';
+//Local
+// const base_url = 'http://localhost:5000/api/';
+
+//Heroku
+const base_url = 'https://aplate-api.herokuapp.com/api/';
+
 
 
 

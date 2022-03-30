@@ -17,11 +17,11 @@ import {
 
 
 //local
-const base_url = 'http://localhost:5000/api/events/';
+// const base_url = 'http://localhost:5000/api/';
 
 //heroku
 
-// const base_url = 'https://gbc-crud-backend.herokuapp.com/api/v1/employees/'
+const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 
 
@@ -48,7 +48,7 @@ class EditEvent extends Component {
   componentDidMount = () => {
 
 
-    axios.get(base_url + this.props.match.params.id)
+    axios.get(base_url + "events/" + this.props.match.params.id)
       .then(response => {
         this.setState({
           eventName: response.data.eventName,
@@ -67,7 +67,7 @@ class EditEvent extends Component {
         console.log(error);
       })
 
-    axios.get(base_url)
+    axios.get(base_url + "events/")
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -156,7 +156,7 @@ class EditEvent extends Component {
     formData.append("seat", this.state.seat)
     formData.append("city", this.state.city)
 
-    axios.put(base_url + this.props.match.params.id, formData)
+    axios.put(base_url = "events/" + this.props.match.params.id, formData)
       .then(res => console.log(res.data));
 
 

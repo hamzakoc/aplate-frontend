@@ -12,10 +12,10 @@ import axios from 'axios';
 
 
 //local
-const base_url = 'http://localhost:5000/api/restaurants/';
+// const base_url = 'http://localhost:5000/api/';
 
 //heroku
-// const base_url = 'https://gbc-crud-backend.herokuapp.com/api/v1/employees/'
+const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 class RestaurantDetailOne extends Component {
 
@@ -41,7 +41,7 @@ class RestaurantDetailOne extends Component {
 }
 
 componentDidMount = () => {
-  axios.get(base_url + this.props.match.params.id)
+  axios.get(base_url+"restaurants/" + this.props.match.params.id)
       .then(response => {
           this.setState({
             id:response.data._id,
@@ -64,7 +64,7 @@ componentDidMount = () => {
           console.log(error);
       })
 
-  axios.get(base_url)
+  axios.get(+"restaurants/")
       .then(response => {
           if (response.data.length > 0) {
             const restaurants = response.data

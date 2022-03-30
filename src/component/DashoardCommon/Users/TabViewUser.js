@@ -14,11 +14,11 @@ import { withRouter } from "react-router";
 
 
 //local
-const base_url = 'http://localhost:5000/api/admins/';
+// const base_url = 'http://localhost:5000/api/';
 
 //heroku
 
-// const base_url = 'https://gbc-crud-backend.herokuapp.com/api/v1/employees/'
+const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 
 
@@ -41,7 +41,7 @@ class TabCreateUser extends Component {
   componentDidMount = () => {
 
 
-    axios.get(base_url + this.props.match.params.id)
+    axios.get(base_url + "admins/" + this.props.match.params.id)
       .then(response => {
         this.setState({
           id: response.data._id,
@@ -58,7 +58,7 @@ class TabCreateUser extends Component {
         console.log(error);
       })
 
-    axios.get(base_url)
+    axios.get(base_url + "admins/")
       .then(response => {
         if (response.data.length > 0) {
           this.setState({

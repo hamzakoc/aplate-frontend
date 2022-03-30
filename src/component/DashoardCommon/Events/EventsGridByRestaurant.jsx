@@ -9,10 +9,12 @@ import { withRouter } from "react-router";
 
 
 //local
-const base_url = 'http://localhost:5000/api/events/';
+// const base_url = 'http://localhost:5000/api/';
 
 //heroku
-// const base_url = 'https://gbc-crud-backend.herokuapp.com/api/v1/employees/'
+const base_url = 'https://aplate-api.herokuapp.com/api/'
+
+
 
 
 const Events = props=>(
@@ -67,7 +69,7 @@ class EventsGrid extends Component {
 
   componentDidMount() {
 
-        axios.get(base_url)
+        axios.get(base_url+"events/")
         .then(response => {
             console.log(response.data)
 

@@ -1,7 +1,12 @@
 import axios from 'axios';
 
+
+const base_url = "https://aplate-api.herokuapp.com/"
+
+
+
 const LoginService = data => (
-    axios.post('http://localhost:5000/login', data)
+    axios.post(base_url + 'login/', data)
         .then(res => res.status)
 )
 

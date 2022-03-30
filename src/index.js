@@ -1,4 +1,4 @@
-import React, { Component, createContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import 'bootstrap/dist/css/bootstrap.css';
@@ -12,7 +12,6 @@ import Admin from "./component/DashAdmin/Admin";
 import Moderator from "./component/DashModerator/Moderator";
 import DashboardUser from "./component/DashUser/DashboardUser";
 import DashboardRestaurant from "./component/DashRestaurant/DashboardRestaurant";
-
 
 
 import ResCreateEvent from "./component/DashRestaurant/ResCreateEvent";
@@ -41,7 +40,7 @@ import Login from "./component/login/Login";
 import Register from "./component/login/Register";
 
 
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
 
 
 function App() {
@@ -207,7 +206,7 @@ function App() {
           component={(props) => <CreateRestaurant {...props} />}
         />}
 
-        {admin && <Route
+        {moderator && <Route
           exact
           path={`${process.env.PUBLIC_URL}/CreateRestaurant`}
           render={(props) => <CreateRestaurant {...props} />}
@@ -215,7 +214,7 @@ function App() {
         />}
 
 
-        {moderator && <Route
+        {admin && <Route
           exact
           path={`${process.env.PUBLIC_URL}/EditRestaurant/:id`}
           render={(props) => <EditRestaurant {...props} />}

@@ -1,5 +1,4 @@
 import React, { Component, useState } from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import {Link} from 'react-router-dom';
 import "react-tabs/style/react-tabs.css";
 import axios from 'axios';
@@ -19,11 +18,11 @@ import { withRouter } from "react-router";
 
 
 //local
-const base_url = 'http://localhost:5000/api/admins/';
+// const base_url = 'http://localhost:5000/api/';
 
 //heroku
 
-// const base_url = 'https://gbc-crud-backend.herokuapp.com/api/v1/employees/'
+const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 
 
