@@ -1,24 +1,18 @@
-import React, { Component, useState } from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import React, { Component, } from "react";
+import { Tabs, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import axios from 'axios';
+import bcrypt from 'bcryptjs';
 
-import DateFnsUtils from '@date-io/date-fns';
-
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDateTimePicker,
-
-} from '@material-ui/pickers';
 import { withRouter } from "react-router";
 
 
 //local
-// const base_url = 'http://localhost:5000/api/';
+const base_url = 'http://localhost:5000/api/';
 
 //heroku
 
-const base_url = 'https://aplate-api.herokuapp.com/api/'
+// const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 
 
@@ -120,7 +114,11 @@ class TabCreateUser extends Component {
       role: this.state.role
     }
 
+    const password = users.password;
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(password, salt);
 
+    users["password"] = hash;
 
     axios.put(base_url + "admins/" + this.props.match.params.id, users)
       .then(res => console.log(res.data));

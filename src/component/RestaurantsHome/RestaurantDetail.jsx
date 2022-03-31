@@ -1,9 +1,6 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
-import { ReactComponent as Phone } from "../../svg/phone-call.svg";
-import { ReactComponent as Email } from "../../svg/mail.svg";
 import RestaurantDetailOne from "./RestaurantDetailOne";
 import BookTable from "../Common/BookTable";
 import QuoteDay from "../Common/QuoteDay";

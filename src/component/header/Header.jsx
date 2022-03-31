@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { ReactComponent as Logo } from "../../svg/shopping-bag.svg";
+
 import { FiX, FiMenu } from "react-icons/fi";
-import axios from 'axios';
+
 
 class Header extends Component {
   constructor(props) {

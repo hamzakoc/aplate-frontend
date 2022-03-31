@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
 import Header from "../../header/Header";
 import Footer from "../../footer/Footer";
 import EventsGrid from "./EventsGrid";

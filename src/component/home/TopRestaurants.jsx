@@ -1,19 +1,14 @@
 import React, { Component } from "react";
-import { FaFacebookF } from "react-icons/fa";
-import { FaGoogle } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
 import { ReactComponent as Arrow } from "../../svg/right-arrow.svg";
-import { ReactComponent as Phone } from "../../svg/phone-call2.svg";
 import { Link } from "react-router-dom";
 
 import axios from 'axios';
 
 //local
-// const base_url = 'http://localhost:5000/api/';
+const base_url = 'http://localhost:5000/api/';
 
 //heroku
-const base_url = 'https://aplate-api.herokuapp.com/api/'
+// const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 const Restaurants= props=>(
   <div className="col-lg-4 col-md-6" >

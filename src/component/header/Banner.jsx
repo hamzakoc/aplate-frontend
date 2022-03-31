@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { ReactComponent as Logo } from "../../svg/shopping-bag.svg";
 
 class Banner extends Component {
   render() {

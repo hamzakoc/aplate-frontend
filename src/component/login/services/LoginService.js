@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 
-const base_url = "https://aplate-api.herokuapp.com/"
+// const base_url = "https://aplate-api.herokuapp.com/"
+const base_url = "http://localhost:5000/"
+
 
 
 

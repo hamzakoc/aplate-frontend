@@ -1,18 +1,16 @@
 import React, { Component } from "react";
-import Slider from "react-slick";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import {format} from 'date-fns'
 import Moment from 'moment';
 import { withRouter } from "react-router";
 
 
 
 //local
-// const base_url = 'http://localhost:5000/api/';
+const base_url = 'http://localhost:5000/api/';
 
 //heroku
-const base_url = 'https://aplate-api.herokuapp.com/api/'
+// const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 
 

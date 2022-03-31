@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from "react";
+import React, { Component,} from "react";
 import { Link } from "react-router-dom";
 import Header from "../../header/Header";
 import Footer from "../../footer/Footer";
 import Banner from "../../header/Banner";
-import { ReactComponent as Login } from "../../../svg/login.svg";
 import axios from 'axios';
 import { ReactComponent as Restaurant } from "../../../svg/restaurant.svg";
 import { ReactComponent as Clock } from "../../../svg/wall-clock.svg";
@@ -13,11 +12,11 @@ import WOW from "wowjs";
 import Moment from 'moment';
 
 //Local
-// const base_url = 'http://localhost:5000/api/';
+const base_url = 'http://localhost:5000/api/';
 
 
 
-const base_url = 'https://aplate-api.herokuapp.com/api/';
+// const base_url = 'https://aplate-api.herokuapp.com/api/';
 
 
 
@@ -70,7 +69,8 @@ class EventDetail extends Component {
       signedRestaurantId:'',
       bookingStatus:false,
       postedRestaurantName:'',
-      postedRestaurantDesc:''
+      postedRestaurantDesc:'',
+      postedRestaurantLogo:''
     }
 }
 
@@ -101,9 +101,9 @@ componentDidMount = () => {
         .then(response => {
           
                 this.setState({
-                    postedRestaurantName: response.data.username,
-                    postedRestaurantDesc: response.data.about
-
+                    postedRestaurantName: response.data.fullName,
+                    postedRestaurantDesc: response.data.about,
+                    postedRestaurantLogo:response.data.logo.data
                 })
                 console.log(response.data)
                 
@@ -248,13 +248,13 @@ onSubmitReview = (e) => {
         }else{
        
           const postReview=  document.getElementById('postReview')
-          postReview.innerHTML = "Login in to book a table"
+          postReview.innerHTML = "Login in to make a review"
           postReview.setAttribute( 'class', 'p-3 mb-2 bg-danger text-white' );
      
      
                setTimeout(() => {
                 
-                 const postReview=  document.getElementById('booking')
+                 const postReview=  document.getElementById('postReview')
                  postReview.innerHTML = ""
                  postReview.setAttribute( 'class', '' );
                }, 3000);
@@ -454,14 +454,13 @@ onSubmitReview = (e) => {
                             ")",
                         }}
                       ></div>
+                      
                       <div className="row align-items-center">
                         <div className="col-md-5">
                           <div className="chef-avatar">
-                            <img
-                              src="assets/images/restaurants/res3.png"
-                              alt=""
-                              width={300}
-                            />
+                          <img src={`data:${this.state.postedRestaurantLogo};base64, 
+                   ${Buffer.from(this.state.postedRestaurantLogo).toString('base64')}`}
+                    alt="" width={300} />
                           </div>
                         </div>
                         <div className="col-md-7">

@@ -3,25 +3,14 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import axios from 'axios';
 import { withRouter } from "react-router";
-
-import DateFnsUtils from '@date-io/date-fns';
-
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDateTimePicker,
-
-} from '@material-ui/pickers';
-
-
-
-
+import bcrypt from 'bcryptjs';
 
 //local
-// const base_url = 'http://localhost:5000/api/';
+const base_url = 'http://localhost:5000/api/';
 
 //heroku
 
-const base_url = 'https://aplate-api.herokuapp.com/api/'
+// const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 
 
@@ -167,8 +156,10 @@ class TabEditRestaurant extends Component {
 
   onSubmit = (e) => {
 
+    e.preventDefault()
 
     const formData = new FormData()
+
 
     formData.append("username", this.state.username)
     formData.append("password", this.state.password)

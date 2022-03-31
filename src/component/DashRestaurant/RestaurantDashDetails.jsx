@@ -5,10 +5,10 @@ import axios from 'axios';
 
 
 //local
-// const base_url = 'http://localhost:5000/api/';
+const base_url = 'http://localhost:5000/api/';
 
 //heroku
-const base_url = 'https://aplate-api.herokuapp.com/api/'
+// const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 
 
@@ -38,7 +38,7 @@ const Events = props=>(
             {props.events.eve}
             </a>
           </h4>
-          
+    
           <a
         
          className="btn-danger brd-rd3 red-bg"
@@ -221,9 +221,9 @@ reviewList() {
 }
 
 
-  deleteEvent(id) {
+deleteEvent(id) {
 
-    axios.delete(base_url + id)
+    axios.delete(base_url +"events/"+ id)
         .then(response => { console.log(response.data) });
 
     window.location.reload(false);

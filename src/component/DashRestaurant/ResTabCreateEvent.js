@@ -1,5 +1,5 @@
-import React, { Component, useState } from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import React, { Component,  } from "react";
+import {  Tabs, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 import axios from 'axios';
@@ -15,11 +15,11 @@ import {
 
 
 //local
-// const base_url = 'http://localhost:5000/api/';
+const base_url = 'http://localhost:5000/api/';
 
 //heroku
 
-const base_url = 'https://aplate-api.herokuapp.com/api/'
+// const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 
 
@@ -119,22 +119,9 @@ class TabTwo extends Component {
 
 
   onSubmit = (e) => {
-
-    // const events = {
-
-    //   eventName: this.state.eventName,
-    //   eventDate: this.state.eventDate,
-    //   eventTime: this.state.eventTime,
-    //   desciription: this.state.desciription,
-    //   foodOption: this.state.foodOption,
-    //   restaurant: this.state.restaurant,
-    //   eventPhoto: this.state.eventPhoto,
-    //   optionalImage: this.state.optionalImage
-    // }
-
+    // e.preventDefault()
 
     const formData = new FormData()
-
 
     formData.append("eventPhoto", this.state.eventPhoto)
     formData.append("optionalImage", this.state.optionalImage)

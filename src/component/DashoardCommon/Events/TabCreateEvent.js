@@ -1,5 +1,5 @@
-import React, { Component, useState } from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import React, { Component, } from "react";
+import {  Tabs,  TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 import axios from 'axios';
@@ -15,11 +15,11 @@ import {
 
 
 //local
-// const base_url = 'http://localhost:5000/api/';
+const base_url = 'http://localhost:5000/api/';
 
 //heroku
 
-const base_url = 'https://aplate-api.herokuapp.com/api/'
+// const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 const Restaurant = props => (<>
 

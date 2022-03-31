@@ -5,10 +5,10 @@ import { ReactComponent as Motor } from "../../svg/motorbike.svg";
 import axios from 'axios';
 
 //local
-// const base_url = 'http://localhost:5000/api/';
+const base_url = 'http://localhost:5000/api/';
 
 //heroku
-const base_url = 'https://aplate-api.herokuapp.com/api/'
+// const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 
 const Events = props=>(
@@ -278,7 +278,7 @@ const Reviews= props=>(
                           <div className="review-info">
                          
                             <div className="review-info-inner">
-                              <h5 itemprop="headline">Posted By: {props.reviews.user.emailId}</h5>
+                              <h5 itemprop="headline">Posted By: {props.reviews.user.username}</h5>
                               <i className="red-clr">Posted At:{props.reviews.created_at}</i>
                             </div>
                             

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+
 import Header2 from "../header/Header2";
 import Footer from "../footer/Footer";
 import AboutIntro from "../Common/AboutIntro";
@@ -10,11 +10,11 @@ import SubscriptionFormTwo from "../Common/SubscriptionFormTwo";
 import AboutPricing from "../Common/AboutPricing";
 import ChefPost from "../Common/ChefPost";
 import ChefRecipes from "../Common/ChefRecipes";
-import { ReactComponent as Arrow } from "../../svg/right-arrow.svg";
+
 import "slick-carousel/slick/slick.css";
 import HomeTwoSlider from "../slider/HomeTwoSlider";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+
 
 class Homepage2 extends Component {
   render() {

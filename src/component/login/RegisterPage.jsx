@@ -1,7 +1,6 @@
 import React, { Component, useState } from "react";
 import {Link} from 'react-router-dom';
 import "react-tabs/style/react-tabs.css";
-import axios from 'axios';
 import {
   UserRegistration,
   UsernameValidation,
@@ -11,18 +10,17 @@ import Error from './elements/Error';
 import {
   REGISTRATION_FIELDS,
   REGISTRATION_MESSAGE,
-  COMMON_FIELDS,
   ERROR_IN_REGISTRATION,
 } from './MessageBundle';
 import { withRouter } from "react-router";
 
 
 //local
-// const base_url = 'http://localhost:5000/api/';
+const base_url = 'http://localhost:5000/api/';
 
 //heroku
 
-const base_url = 'https://aplate-api.herokuapp.com/api/'
+// const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 
 

@@ -18,11 +18,11 @@ import { loginValidation } from "./Helper";
 
 // local
 
-// const base_url = 'http://localhost:5000/api/';
+const base_url = 'http://localhost:5000/';
 
 //Heroku
 
-const base_url = 'https://aplate-api.herokuapp.com/';
+// const base_url = 'https://aplate-api.herokuapp.com/';
 
 
 export default class Login extends Component {
@@ -108,10 +108,11 @@ export default class Login extends Component {
             case 'admin':
               window.location.href=`Admin`
                 break;
-            case 'deactive':
+            case 'deactive':  
+            localStorage.clear()
               alert("Your acccount is not active anymore. Please contact support")
               window.location.href=`/`
-              localStorage.clear()
+            
                   break;
             default:
               window.location.href=`/`
