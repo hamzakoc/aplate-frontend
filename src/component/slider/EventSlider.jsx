@@ -7,10 +7,10 @@ import Moment from 'moment';
 
 
 //local
-// const base_url = 'http://localhost:5000/api/';
+const base_url = 'http://localhost:5000/api/';
 
 //heroku
-const base_url = 'https://aplate-api.herokuapp.com/api/'
+// const base_url = 'https://aplate-api.herokuapp.com/api/'
 
 
 const Events = props => (
